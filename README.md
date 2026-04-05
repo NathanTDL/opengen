@@ -1,21 +1,51 @@
-# Next.js template
+# OpenGen CLI
 
-This is a Next.js template with shadcn/ui.
+A universal, agent-native CLI that aggregates AI image and video generation providers behind a single, consistent command interface.
 
-## Adding components
-
-To add components to your app, run the following command:
+## Installation
 
 ```bash
-npx shadcn@latest add button
+npm install -g opengen
 ```
 
-This will place the ui components in the `components` directory.
+## Setup
 
-## Using components
+Run the interactive setup to configure your Replicate API token and default models:
 
-To use the components in your app, import them as follows:
-
-```tsx
-import { Button } from "@/components/ui/button";
+```bash
+opengen init
 ```
+
+*Alternatively, you can set the `REPLICATE_API_TOKEN` environment variable.*
+
+## Usage
+
+### Image Generation
+
+```bash
+opengen image "a cyberpunk cat riding a motorcycle" --model flux
+```
+
+### Video Generation
+
+```bash
+opengen video "drone flying through neon Tokyo" --model minimax --duration 5
+```
+
+### List Models
+
+```bash
+opengen models
+```
+
+## Agent-Native Features
+
+OpenGen is designed to be easily used by AI agents:
+
+- `--json` flag to force structured JSON output instead of TTY UI.
+- Deterministic exit codes corresponding to different error cases.
+- Easy to pipe standard output for streaming updates and completion.
+
+## License
+
+MIT
